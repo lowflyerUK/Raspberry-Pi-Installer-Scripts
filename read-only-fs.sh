@@ -265,11 +265,13 @@ append2 /boot/cmdline.txt ro^o^t ro
 rm -rf /var/spool
 ln -s /tmp /var/spool
 
-# Move /var/lib/lightdm and /var/cache/lightdm to /tmp
+# Move /var/lib/lightdm, /var/lib/misc(for dnsmasq) and /var/cache/lightdm to /tmp
 rm -rf /var/lib/lightdm
 rm -rf /var/cache/lightdm
+rm -rf /var/lib/misc
 ln -s /tmp /var/lib/lightdm
 ln -s /tmp /var/cache/lightdm
+ln -s /tmp /var/lib/misc
 
 # Make SSH work
 replaceAppend /etc/ssh/sshd_config "^.*UsePrivilegeSeparation.*$" "UsePrivilegeSeparation no"
